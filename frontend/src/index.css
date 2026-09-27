@@ -1,0 +1,420 @@
+/* ==========================================================================
+   SYNTHIA CLINICAL RESEARCH DESIGN SYSTEM
+   Bespoke scientific publication & laboratory console aesthetics.
+   Zero generic AI templates. Zero rainbow gradients. Crisp hairlines.
+   ========================================================================== */
+
+:root {
+  /* Surfaces & Paper Tones */
+  --ink: #0B0B0D;
+  --ink-black: #111111;
+  --ivory: #F5F3EE;
+  --ivory-alt: #EFEBE2;
+  --ivory-bright: #FBF9F4;
+  --white: #FFFFFF;
+
+  /* Rule Lines & Structural Dividers */
+  --hairline: #DBD8CD;
+  --hairline-soft: #E4E1D7;
+  --hairline-dark: rgba(255, 255, 255, 0.12);
+
+  /* High-Contrast Typography */
+  --text-primary: #121115;
+  --text-muted: #383545;
+  --text-faint: #6D697C;
+
+  /* Restrained Surgical Brand Accents */
+  --iris: #583BD6;
+  --iris-hover: #482EB8;
+  --iris-soft: #EDE9FE;
+  --iris-border: #DDD6FE;
+  
+  --emerald: #047857;
+  --emerald-soft: #D1FAE5;
+  --crimson: #B91C1C;
+  --crimson-soft: #FEE2E2;
+  --amber: #B45309;
+  --amber-soft: #FEF3C7;
+  --cyan: #0E7490;
+  --cyan-soft: #CFFAFE;
+
+  /* Easing & Tactile Micro-Interactions */
+  --ease-tactile: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --card-shadow: 0 1px 2px rgba(17, 17, 17, 0.04), 0 4px 12px rgba(17, 17, 17, 0.02);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--ivory);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--ink-black);
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Technical Label / Marginalia */
+.label-tag {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.label-tag .rule-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--iris);
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 0 1.25rem;
+  }
+}
+
+.italic-serif {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Editorial Dividers & Hairlines */
+.rule-divider {
+  height: 1px;
+  background-color: var(--hairline);
+  border: none;
+  margin: 0;
+  width: 100%;
+}
+
+.rule-divider-vertical {
+  width: 1px;
+  background-color: var(--hairline);
+  align-self: stretch;
+}
+
+/* Cards & Surface Containers (Structured rule lines instead of generic floating blur) */
+.editorial-card {
+  background: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  box-shadow: var(--card-shadow);
+  transition: border-color 160ms ease;
+}
+
+.editorial-card:hover {
+  border-color: #B5B1A2;
+}
+
+.editorial-card-bone {
+  background: var(--ivory-alt);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+}
+
+.editorial-card-ink {
+  background: var(--ink-black);
+  border: 1px solid var(--hairline-dark);
+  border-radius: 6px;
+  color: var(--ivory);
+}
+
+/* Buttons (Tactile, Crisp, Zero Cheesy Neon Gradients) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 550;
+  font-size: 13px;
+  padding: 0.55rem 1.15rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 140ms var(--ease-tactile);
+  line-height: 1.2;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-ink {
+  background: var(--ink-black);
+  color: var(--ivory);
+  border: 1px solid var(--ink-black);
+}
+
+.btn-ink:hover {
+  background: #25242C;
+  border-color: #25242C;
+}
+
+.btn-iris {
+  background: var(--iris);
+  color: #FFFFFF;
+  border: 1px solid var(--iris);
+}
+
+.btn-iris:hover {
+  background: var(--iris-hover);
+  border-color: var(--iris-hover);
+}
+
+.btn-outline {
+  background: #FFFFFF;
+  color: var(--ink-black);
+  border: 1px solid var(--hairline);
+}
+
+.btn-outline:hover {
+  background: var(--ivory-bright);
+  border-color: var(--ink-black);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--ivory);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--ink-black);
+}
+
+/* Telemetry Badges (Monospace, Sharp, Diagnostic) */
+.badge-telemetry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 550;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-telemetry-pass {
+  background: var(--emerald-soft);
+  color: var(--emerald);
+  border: 1px solid #A7F3D0;
+}
+
+.badge-telemetry-fail {
+  background: var(--crimson-soft);
+  color: var(--crimson);
+  border: 1px solid #FECACA;
+}
+
+.badge-telemetry-neutral {
+  background: var(--ivory-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--hairline);
+}
+
+.badge-telemetry-iris {
+  background: var(--iris-soft);
+  color: var(--iris);
+  border: 1px solid var(--iris-border);
+}
+
+/* Inputs & Form Controls */
+.input-text, .select-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  border: 1px solid var(--hairline);
+  background: #FFFFFF;
+  color: var(--ink-black);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.input-text:focus, .select-input:focus {
+  border-color: var(--iris);
+  box-shadow: 0 0 0 2px rgba(88, 59, 214, 0.12);
+}
+
+/* Range Slider (Tactile Lab Dial) */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--hairline);
+  outline: none;
+  margin: 12px 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--ink-black);
+  cursor: pointer;
+  border: 2px solid var(--ivory);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: var(--iris);
+  transform: scale(1.1);
+}
+
+/* Clinical Specimen Data Table */
+.data-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12.5px;
+}
+
+.data-table th {
+  background: var(--ivory-bright);
+  padding: 0.7rem 0.9rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.data-table td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--hairline-soft);
+  color: var(--text-primary);
+}
+
+.data-table tr:hover td {
+  background: var(--ivory-bright);
+}
+
+/* Distribution Comparison Dual-Tracks (For empirical validation specimens) */
+.compare-track {
+  width: 100%;
+  height: 6px;
+  background: var(--hairline-soft);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.compare-fill-real {
+  height: 100%;
+  background: var(--ink-black);
+  transition: width 400ms var(--ease-tactile);
+}
+
+.compare-fill-synth {
+  height: 100%;
+  background: var(--iris);
+  transition: width 400ms var(--ease-tactile);
+}
+
+/* Micro-animations */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

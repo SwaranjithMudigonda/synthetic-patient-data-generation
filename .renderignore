@@ -1,0 +1,47 @@
+# Exclude training/evaluation-only files from Render deployment
+# Saves ~6MB+ and speeds up builds
+
+# Large archive
+synthia_project_review.zip
+
+# Old pipeline (replaced by gaussian_copula_final)
+gaussian_copula_pipeline/
+
+# Evaluation & test scripts
+gaussian_copula_final/evaluate_final.py
+gaussian_copula_final/generate_plots_final.py
+gaussian_copula_final/test_copula_final.py
+gaussian_copula_final/outputs/
+gaussian_copula_final/synthetic/
+gaussian_copula_final/FINAL_*.md
+evaluate_all_models.py
+tests/
+MODEL_EVALUATION_REPORT.md
+
+# Duplicate parquet files (CSV versions are used at runtime)
+final_training_data/nhanes_generative_train.parquet
+final_training_data/nhanes_real_holdout.parquet
+final_training_data/cleaning_statistics.csv
+final_training_data/feature_metadata.csv
+final_training_data/final_schema.json
+final_training_data/FINAL_TRAINING_READINESS_REPORT.md
+
+# Legacy files
+nhanes_clinical_sample.csv
+SYN-GC-BDF99F07_synthetic_cohort_2500.csv
+DEMO_INSTRUCTIONS.md
+IMPLEMENTATION_STATUS.md
+
+# Frontend source (only dist/ is needed if serving from backend)
+frontend/src/
+frontend/node_modules/
+frontend/public/
+frontend/package.json
+frontend/vite.config.js
+frontend/.eslintrc*
+
+# Git
+.git/
+.gitignore
+.pytest_cache/
+__pycache__/
